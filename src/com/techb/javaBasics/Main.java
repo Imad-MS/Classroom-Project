@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ui user_interface = new ui();
-        user_interface.listAllStudents();
+        StudentsDAO user_frontend = new StudentsDAO();
+        user_frontend.listAllStudents();
 
         //Status variable to exit program loop
         boolean status = true;
@@ -23,7 +23,7 @@ public class Main {
 
             //Add a new student
             if(choice.equals("1")){
-                if(user_interface.canAdd() == true){
+                if(user_frontend.canAdd() == true){
                     System.out.println("Enter student's first name.");
                     String input_name = input.nextLine();
 
@@ -46,7 +46,7 @@ public class Main {
                     System.out.println("Enter student's email address.");
                     String input_email = input.nextLine();
 
-                    user_interface.addStudent(input_name, input_last_name, input_phone_number, input_ssn, input_gpa, input_student_id, input_email);
+                    user_frontend.addStudent(input_name, input_last_name, input_phone_number, input_ssn, input_gpa, input_student_id, input_email);
                 } else {
                     System.out.println("Sorry, you can't add more than ten students to the class.");
                 }
@@ -54,7 +54,7 @@ public class Main {
             } else if(choice.equals("2")){
                 System.out.println("Enter the corresponding Student ID of the student you want deleted.");
                 String input_student_id = input.nextLine();
-                user_interface.removeStudent(input_student_id);
+                user_frontend.removeStudent(input_student_id);
             // Update student information
             } else if(choice.equals("3")){
                 System.out.println("Enter the corresponding Student ID of the student data you want to update.");
@@ -78,10 +78,10 @@ public class Main {
                 System.out.println("Enter student's new email address.");
                 String input_email = input.nextLine();
 
-                user_interface.updateStudentInfo(input_student_id, input_name, input_last_name, input_phone_number, input_ssn, input_gpa, input_email);
+                user_frontend.updateStudentInfo(input_student_id, input_name, input_last_name, input_phone_number, input_ssn, input_gpa, input_email);
             // List all students in class
             } else if(choice.equals("4")){
-                user_interface.listAllStudents();
+                user_frontend.listAllStudents();
             // Quit
             } else if(choice.equals("5")){
                 status = false;

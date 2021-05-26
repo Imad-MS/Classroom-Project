@@ -2,7 +2,7 @@ package com.techb.javaBasics;
 
 import java.util.ArrayList;
 
-public class ui {
+public class StudentsDAO {
     private ArrayList<Student> student_list = new ArrayList<Student>();
 
     //adds a student to the list
